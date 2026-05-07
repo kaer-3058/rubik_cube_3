@@ -1,0 +1,1 @@
+$tp ~$(temp_offset_pos_x) ~$(temp_offset_pos_y) ~$(temp_offset_pos_z)

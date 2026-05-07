@@ -1,0 +1,2 @@
+$execute if score pia rrrcubecore_timeount matches 1 run title @p[tag=rrr_cube_user] actionbar ["$(face)",{"text":"'  "}]
+$execute unless score pia rrrcubecore_timeount matches 1 run title @p[tag=rrr_cube_user] actionbar ["$(face)",{"text":"   "}]

@@ -1,0 +1,1 @@
+$execute store result storage rubik_cube_3:io temp3 long $(temp1) run return $(temp2)

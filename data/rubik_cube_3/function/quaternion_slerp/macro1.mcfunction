@@ -1,0 +1,1 @@
+$execute store result storage rubik_cube_3:io temp_t_theta double $(temp1) run return $(temp3)

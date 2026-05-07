@@ -1,0 +1,1 @@
+$function rubik_cube_3:solve/tree/$(temp1)

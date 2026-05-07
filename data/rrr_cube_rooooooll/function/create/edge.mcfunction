@@ -1,0 +1,17 @@
+###垂直中间层M
+summon interaction ~-0.3333333333333333 ~-0.5 ~ {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{front:5,down:1,mid:3,offset_pos:[-0.3333333333333333,-0.5,0]}}
+summon interaction ~0.3333333333333333 ~-0.5 ~ {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{back:5,down:5,mid:5,offset_pos:[0.3333333333333333,-0.5,0]}}
+summon interaction ~-0.3333333333333333 ~0.166666666666666 ~ {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{front:1,up:5,mid:1,offset_pos:[-0.3333333333333333,0.166666666666,0]}}
+summon interaction ~0.3333333333333333 ~0.16666666666666666 ~ {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{back:1,up:1,mid:7,offset_pos:[0.3333333333333333,0.16666666666,0]}}
+
+###立向中层‌ Standing
+summon interaction ~ ~-0.5 ~0.3333333333333333 {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{right:5,down:3,standing:3,offset_pos:[0,-0.5,0.3333333333333333]}}
+summon interaction ~ ~-0.5 ~-0.3333333333333333 {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{left:5,down:7,standing:5,offset_pos:[0,-0.5,-0.3333333333333333]}}
+summon interaction ~ ~0.166666666666666 ~0.3333333333333333 {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{right:1,up:3,standing:1,offset_pos:[0,0.166666666666666,0.3333333333333333]}}
+summon interaction ~ ~0.166666666666666 ~-0.3333333333333333 {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{left:1,up:7,standing:7,offset_pos:[0,0.166666666666666,-0.3333333333333333]}}
+
+###中层(赤道层）
+summon interaction ~-0.3333333333333333 ~-0.166666666666666 ~-0.3333333333333333 {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{front:7,left:3,equator:7,offset_pos:[-0.3333333333333333,-0.16666666666666,-0.3333333333333333]}}
+summon interaction ~-0.3333333333333333 ~-0.166666666666666 ~0.3333333333333333 {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{front:3,right:7,equator:1,offset_pos:[-0.3333333333333333,-0.16666666666666,0.3333333333333333]}}
+summon interaction ~0.3333333333333333 ~-0.166666666666666 ~-0.3333333333333333 {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{back:3,left:7,equator:5,offset_pos:[0.3333333333333333,-0.166666666666666,-0.3333333333333333]}}
+summon interaction ~0.3333333333333333 ~-0.166666666666666 ~0.3333333333333333 {Tags:["rrr_cube_block","rrr_cube_edge","can_break_by_hit"],height:0.3333333333333333,width:0.3333333333333333,data:{back:7,right:3,equator:3,offset_pos:[0.3333333333333333,-0.166666666666666,0.3333333333333333]}}

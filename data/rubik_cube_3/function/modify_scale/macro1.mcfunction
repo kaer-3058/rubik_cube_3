@@ -1,0 +1,1 @@
+$execute store result storage rubik_cube_3:io temp2 int $(cube_scale) run return 9

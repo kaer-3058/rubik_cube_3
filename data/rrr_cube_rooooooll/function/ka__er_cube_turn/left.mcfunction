@@ -1,0 +1,3 @@
+data modify storage rubik_cube_3:io rotation set value {face:"north", clockwise:true, interpolation_duration:4, whole_cube:false}
+execute if score pia rrrcubecore_timeount matches 1 run data modify storage rubik_cube_3:io rotation set value {face:"north", clockwise:false, interpolation_duration:4, whole_cube:false}
+execute at @n[type=text_display,distance=..3] run function rubik_cube_3:cube_function/rotation
