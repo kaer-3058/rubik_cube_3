@@ -1,4 +1,4 @@
-data modify entity @s transformation merge value {left_rotation:[0,0,0,1],right_rotation:[0,0,0,1],translation:[0,0,0]}
+data modify entity @s transformation set value {left_rotation:[0,0,0,1],right_rotation:[0,0,0,1],translation:[0,0,0],scale:[1,1,1]}
 data modify entity @s data set value {rotation_matrix:[1,0,0,0,1,0,0,0,1]}
 data modify entity @s[tag=rubik_cube_3_o_01] Tags set value ["rubik_cube_3_o_01","rubik_cube_3_base","rubik_cube_3_","rubik_cube_3_up","rubik_cube_3_north","rubik_cube_3_east"]
 data modify entity @s[tag=rubik_cube_3_o_02] Tags set value ["rubik_cube_3_o_02","rubik_cube_3_base","rubik_cube_3_","rubik_cube_3_up","rubik_cube_3_north","rubik_cube_3_e-w_center"]

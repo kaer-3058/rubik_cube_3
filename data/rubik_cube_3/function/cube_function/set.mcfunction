@@ -4,6 +4,8 @@ execute at @n[type=text_display,tag=rubik_cube_3_center,distance=...87] if entit
 function rubik_cube_3:set_cube/start
 function rrr_cube_rooooooll:create/cube
 
+# 绑定实体的数据：data:{center_entity_uuid:[I;0,0,0,1]}
+
 
 #初始化大小
 execute unless data storage rubik_cube_3:io cube_scale run data modify storage rubik_cube_3:io cube_scale set value 1.0f

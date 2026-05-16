@@ -31,3 +31,13 @@ summon minecraft:marker .0 .0 .0 {UUID:[I;45214,4521453,454565,-4252],CustomName
 summon block_display .0 .0 .0 {UUID:[I;1229582971,1398951444,-1106969221,-1837980652]}
 
 data modify storage rubik_cube_3:io buffer_all_xyz set value [0d,0d,0d]
+
+
+forceload add -29999982 22022220
+
+#用于暂存物品(单个)的唱片机
+setblock -29999984 -60 22022220 minecraft:stone
+setblock -29999984 -60 22022220 minecraft:jukebox{RecordItem:{id:"minecraft:stone",count:1}}
+
+#物品 563adc0-fffd-c986-fd14-59f186a8aaa
+summon minecraft:item -29999982.5 -63 22022223.5 {UUID:[I;90418624,-145018,-49019489,409635498],Invulnerable:1b,NoGravity:1b,Item:{id:"minecraft:stone",count:1},PickupDelay:32767s,Age:-32768s}

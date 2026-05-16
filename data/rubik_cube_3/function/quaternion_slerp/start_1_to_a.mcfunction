@@ -7,7 +7,7 @@
 
 #t值(放大10000倍)：scoreboard players set #quat_slerp_t int 10000
 
-#计算：function rubik_cube_3:quaternion_slerp/p0_is_1/start
+#计算：function rubik_cube_3:quaternion_slerp/start_1_to_a
 
 #输出：data get storage rubik_cube_3:io quat_C
 

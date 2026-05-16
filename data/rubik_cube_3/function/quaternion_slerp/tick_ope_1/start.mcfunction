@@ -6,9 +6,9 @@ execute store result score #temp_timing int run data get storage rubik_cube_3:io
 execute store result entity @s data.manual_interpolation.timing int 1 run scoreboard players add #temp_timing int 1
 
 #缩放因子
-data modify storage rubik_cube_3:io temp1 set value [1,0,0,3,0,1,0,0,0,0,1,0,0,0,0,1]
-data modify storage rubik_cube_3:io temp1[-1] set from storage rubik_cube_3:io cube_scale
-data modify entity 4949f27b-5362-4e14-be04-fd7b9272a414 transformation set from storage rubik_cube_3:io temp1
+data modify storage rubik_cube_3:io temp_cube_scale_matrix set value [1,0,0,3,0,1,0,0,0,0,1,0,0,0,0,1]
+data modify storage rubik_cube_3:io temp_cube_scale_matrix[-1] set from entity @s data.cube_scale
+data modify entity 4949f27b-5362-4e14-be04-fd7b9272a414 transformation set from storage rubik_cube_3:io temp_cube_scale_matrix
 data modify storage rubik_cube_3:io temp_1_scale set from entity 4949f27b-5362-4e14-be04-fd7b9272a414 transformation.translation[0]
 
 #计时已满则把过渡状态的旋转数据改为已经算好的旋转数据

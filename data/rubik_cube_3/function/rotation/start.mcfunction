@@ -1,43 +1,65 @@
+#旋转魔方，同时记录旋转状态
+
 #旋转魔方
+execute on passengers run function rubik_cube_3:rotation/start_on_passengers
 
-#执行方式：execute positioned x y z as @e[type=text_display,tag=rubik_cube_3_,distance=...01] run function rubik_cube_3:rotation/start
-#传入魔方的位置
 
-# data modify storage rubik_cube_3:io rotation set value {face:"up", clockwise:true, interpolation_duration:10}
-# face：要旋转哪一面。 \
-  可选值："up", "down", "north", "south", "east", "west"
-# clockwise：是否按顺时针旋转，默认为true
-# interpolation_duration：展示实体渲染变换发生改变时的插值时间，单位为游戏刻，默认为0
+# 魔方旋转符号： \
+  \
+  前蓝 北蓝 F   \
+  后绿 南绿 B   \
+  左橙 东橙 L   \
+  右红 西红 R   \
+  上黄 上黄 U   \
+  下白 下白 D   \
+  上下中层  E   \
+  前后(南北)中层  S   \
+  左右(东西)中层  M
 
-# 北蓝，南绿，东橙，西红，上黄，下白
+#符号版本
 
-#是否顺时针旋转，默认值设置
-execute unless data storage rubik_cube_3:io rotation{clockwise:true} unless data storage rubik_cube_3:io rotation{clockwise:false} run data modify storage rubik_cube_3:io rotation.clockwise set value true
+data remove storage rubik_cube_3:io temp1
+execute if data storage rubik_cube_3:io rotation{face:"up",        clockwise:true } run data modify storage rubik_cube_3:io temp1 set value "U"
+execute if data storage rubik_cube_3:io rotation{face:"up",        clockwise:false} run data modify storage rubik_cube_3:io temp1 set value "U'"
+execute if data storage rubik_cube_3:io rotation{face:"down",      clockwise:true } run data modify storage rubik_cube_3:io temp1 set value "D"
+execute if data storage rubik_cube_3:io rotation{face:"down",      clockwise:false} run data modify storage rubik_cube_3:io temp1 set value "D'"
+execute if data storage rubik_cube_3:io rotation{face:"north",     clockwise:true } run data modify storage rubik_cube_3:io temp1 set value "F"
+execute if data storage rubik_cube_3:io rotation{face:"north",     clockwise:false} run data modify storage rubik_cube_3:io temp1 set value "F'"
+execute if data storage rubik_cube_3:io rotation{face:"south",     clockwise:true } run data modify storage rubik_cube_3:io temp1 set value "B"
+execute if data storage rubik_cube_3:io rotation{face:"south",     clockwise:false} run data modify storage rubik_cube_3:io temp1 set value "B'"
+execute if data storage rubik_cube_3:io rotation{face:"east",      clockwise:true } run data modify storage rubik_cube_3:io temp1 set value "L"
+execute if data storage rubik_cube_3:io rotation{face:"east",      clockwise:false} run data modify storage rubik_cube_3:io temp1 set value "L'"
+execute if data storage rubik_cube_3:io rotation{face:"west",      clockwise:true } run data modify storage rubik_cube_3:io temp1 set value "R"
+execute if data storage rubik_cube_3:io rotation{face:"west",      clockwise:false} run data modify storage rubik_cube_3:io temp1 set value "R'"
+execute if data storage rubik_cube_3:io rotation{face:"n-s_center",clockwise:true } run data modify storage rubik_cube_3:io temp1 set value "S"
+execute if data storage rubik_cube_3:io rotation{face:"n-s_center",clockwise:false} run data modify storage rubik_cube_3:io temp1 set value "S'"
+execute if data storage rubik_cube_3:io rotation{face:"e-w_center",clockwise:true } run data modify storage rubik_cube_3:io temp1 set value "M"
+execute if data storage rubik_cube_3:io rotation{face:"e-w_center",clockwise:false} run data modify storage rubik_cube_3:io temp1 set value "M'"
+execute if data storage rubik_cube_3:io rotation{face:"u-d_center",clockwise:true } run data modify storage rubik_cube_3:io temp1 set value "E"
+execute if data storage rubik_cube_3:io rotation{face:"u-d_center",clockwise:false} run data modify storage rubik_cube_3:io temp1 set value "E'"
 
-#是否整体旋转，默认值设置
-execute unless data storage rubik_cube_3:io rotation{whole_cube:true} unless data storage rubik_cube_3:io rotation{whole_cube:false} run data modify storage rubik_cube_3:io rotation.whole_cube set value false
+data modify entity @s data.formula append from storage rubik_cube_3:io temp1
 
-#单层旋转
-execute if data storage rubik_cube_3:io rotation{whole_cube:false} run return run function rubik_cube_3:rotation/single_layer
+#人话版本
 
-#整体旋转
-data modify storage rubik_cube_3:io store_rotation set from storage rubik_cube_3:io rotation
-execute if data storage rubik_cube_3:io store_rotation{face:"up",clockwise:true} run function rubik_cube_3:rotation/whole_cube_rotation/up_true
-execute if data storage rubik_cube_3:io store_rotation{face:"up",clockwise:false} run function rubik_cube_3:rotation/whole_cube_rotation/up_false
-execute if data storage rubik_cube_3:io store_rotation{face:"down",clockwise:true} run function rubik_cube_3:rotation/whole_cube_rotation/down_true
-execute if data storage rubik_cube_3:io store_rotation{face:"down",clockwise:false} run function rubik_cube_3:rotation/whole_cube_rotation/down_false
-execute if data storage rubik_cube_3:io store_rotation{face:"north",clockwise:true} run function rubik_cube_3:rotation/whole_cube_rotation/north_true
-execute if data storage rubik_cube_3:io store_rotation{face:"north",clockwise:false} run function rubik_cube_3:rotation/whole_cube_rotation/north_false
-execute if data storage rubik_cube_3:io store_rotation{face:"south",clockwise:true} run function rubik_cube_3:rotation/whole_cube_rotation/south_true
-execute if data storage rubik_cube_3:io store_rotation{face:"south",clockwise:false} run function rubik_cube_3:rotation/whole_cube_rotation/south_false
-execute if data storage rubik_cube_3:io store_rotation{face:"west",clockwise:true} run function rubik_cube_3:rotation/whole_cube_rotation/west_true
-execute if data storage rubik_cube_3:io store_rotation{face:"west",clockwise:false} run function rubik_cube_3:rotation/whole_cube_rotation/west_false
-execute if data storage rubik_cube_3:io store_rotation{face:"east",clockwise:true} run function rubik_cube_3:rotation/whole_cube_rotation/east_true
-execute if data storage rubik_cube_3:io store_rotation{face:"east",clockwise:false} run function rubik_cube_3:rotation/whole_cube_rotation/east_false
-execute if data storage rubik_cube_3:io store_rotation{face:"u-d_center",clockwise:true} run function rubik_cube_3:rotation/whole_cube_rotation/u-d_center_true
-execute if data storage rubik_cube_3:io store_rotation{face:"u-d_center",clockwise:false} run function rubik_cube_3:rotation/whole_cube_rotation/u-d_center_false
-execute if data storage rubik_cube_3:io store_rotation{face:"n-s_center",clockwise:true} run function rubik_cube_3:rotation/whole_cube_rotation/n-s_center_true
-execute if data storage rubik_cube_3:io store_rotation{face:"n-s_center",clockwise:false} run function rubik_cube_3:rotation/whole_cube_rotation/n-s_center_false
-execute if data storage rubik_cube_3:io store_rotation{face:"e-w_center",clockwise:true} run function rubik_cube_3:rotation/whole_cube_rotation/e-w_center_true
-execute if data storage rubik_cube_3:io store_rotation{face:"e-w_center",clockwise:false} run function rubik_cube_3:rotation/whole_cube_rotation/e-w_center_false
-data modify storage rubik_cube_3:io rotation set from storage rubik_cube_3:io store_rotation
+data remove storage rubik_cube_3:io temp3
+execute if data storage rubik_cube_3:io rotation{face:"up",        clockwise:true } run data modify storage rubik_cube_3:io temp3 set value "上面顺时针"
+execute if data storage rubik_cube_3:io rotation{face:"up",        clockwise:false} run data modify storage rubik_cube_3:io temp3 set value "上面逆时针"
+execute if data storage rubik_cube_3:io rotation{face:"down",      clockwise:true } run data modify storage rubik_cube_3:io temp3 set value "下面顺时针"
+execute if data storage rubik_cube_3:io rotation{face:"down",      clockwise:false} run data modify storage rubik_cube_3:io temp3 set value "下面逆时针"
+execute if data storage rubik_cube_3:io rotation{face:"north",     clockwise:true } run data modify storage rubik_cube_3:io temp3 set value "前面顺时针"
+execute if data storage rubik_cube_3:io rotation{face:"north",     clockwise:false} run data modify storage rubik_cube_3:io temp3 set value "前面逆时针"
+execute if data storage rubik_cube_3:io rotation{face:"south",     clockwise:true } run data modify storage rubik_cube_3:io temp3 set value "后面顺时针"
+execute if data storage rubik_cube_3:io rotation{face:"south",     clockwise:false} run data modify storage rubik_cube_3:io temp3 set value "后面逆时针"
+execute if data storage rubik_cube_3:io rotation{face:"east",      clockwise:true } run data modify storage rubik_cube_3:io temp3 set value "左面顺时针"
+execute if data storage rubik_cube_3:io rotation{face:"east",      clockwise:false} run data modify storage rubik_cube_3:io temp3 set value "左面逆时针"
+execute if data storage rubik_cube_3:io rotation{face:"west",      clockwise:true } run data modify storage rubik_cube_3:io temp3 set value "右面顺时针"
+execute if data storage rubik_cube_3:io rotation{face:"west",      clockwise:false} run data modify storage rubik_cube_3:io temp3 set value "右面逆时针"
+execute if data storage rubik_cube_3:io rotation{face:"n-s_center",clockwise:true } run data modify storage rubik_cube_3:io temp3 set value "前后中层顺时针"
+execute if data storage rubik_cube_3:io rotation{face:"n-s_center",clockwise:false} run data modify storage rubik_cube_3:io temp3 set value "前后中层逆时针"
+execute if data storage rubik_cube_3:io rotation{face:"e-w_center",clockwise:true } run data modify storage rubik_cube_3:io temp3 set value "左右中层顺时针"
+execute if data storage rubik_cube_3:io rotation{face:"e-w_center",clockwise:false} run data modify storage rubik_cube_3:io temp3 set value "左右中层逆时针"
+execute if data storage rubik_cube_3:io rotation{face:"u-d_center",clockwise:true } run data modify storage rubik_cube_3:io temp3 set value "上下中层顺时针"
+execute if data storage rubik_cube_3:io rotation{face:"u-d_center",clockwise:false} run data modify storage rubik_cube_3:io temp3 set value "上下中层逆时针"
+
+data modify entity @s data.colloquial_formula append from storage rubik_cube_3:io temp3

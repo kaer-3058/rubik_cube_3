@@ -1,4 +1,4 @@
-## SLERP 向量球面线性插值 - 半径会变
+## SLERP 向量椭球面线性插值
 
 #输入单位四元数，从A过渡到B
 #A：data modify storage rubik_cube_3:io vec_A set value [0,0,0]

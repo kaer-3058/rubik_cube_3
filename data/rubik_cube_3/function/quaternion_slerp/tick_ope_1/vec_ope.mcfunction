@@ -1,7 +1,7 @@
 #位移插值
 
 data modify storage rubik_cube_3:io quat_A set from storage rubik_cube_3:io manual_interpolation.direction
-function rubik_cube_3:quaternion_slerp/p0_is_1/start
+function rubik_cube_3:quaternion_slerp/start_1_to_a
 
 #单位四元数取逆
 data modify storage rubik_cube_3:io sstemp_quat_C set from storage rubik_cube_3:io quat_C

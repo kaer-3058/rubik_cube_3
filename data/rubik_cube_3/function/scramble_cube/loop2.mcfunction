@@ -40,7 +40,8 @@ execute if score #temp1 int matches 13 run data modify storage rubik_cube_3:io r
 execute if score #temp1 int matches 14 run data modify storage rubik_cube_3:io rotation merge from storage rubik_cube_3:io temp_scramble_list[14]
 execute if score #temp1 int matches 15 run data modify storage rubik_cube_3:io rotation merge from storage rubik_cube_3:io temp_scramble_list[15]
 data modify entity @s data.rotation.buffer_rotation_opera set from storage rubik_cube_3:io rotation
-execute at @s as @e[type=text_display,tag=rubik_cube_3_,distance=...01] run function rubik_cube_3:scramble_cube/2
+function rubik_cube_3:rotation/start
+execute on passengers run function rubik_cube_3:scramble_cube/2
 
 data modify storage rubik_cube_3:io rotation set from storage rubik_cube_3:io store_rotation_2
 scoreboard players remove @s store_scrambling_steps 1
