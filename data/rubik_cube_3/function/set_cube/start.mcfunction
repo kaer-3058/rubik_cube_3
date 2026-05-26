@@ -2,6 +2,8 @@
 
 # 一个魔方由231个实体构成。其中27个用于计算旋转的实体，150个黑色底色面，54个带颜色的面
 
+# function rubik_cube_3:set_cube/start
+
 summon text_display ~ ~ ~ {data:{rotation_matrix:[1,0,0,0,1,0,0,0,1]},Rotation:[180,0],Tags:["rubik_cube_3_o_01","rubik_cube_3_base","rubik_cube_3_","rubik_cube_3_up","rubik_cube_3_north","rubik_cube_3_east"]}
 summon text_display ~ ~ ~ {background:0,text:[" ",{object:"atlas",atlas:"blocks",sprite:"block/black_concrete"}],data:{transformation: [  5,  0,  0, -1.875,  0,  5,  0,  0.75,  0,  0,  5,  1,      0, 0, 0, 1 ],rubik_cube_3_on_pass_order:  1}, Rotation:[180,0],Tags:["rubik_cube_3_","rubik_cube_3_o_01_n","rubik_cube_3_up","rubik_cube_3_north","rubik_cube_3_east"]}
 summon text_display ~ ~ ~ {background:0,text:[" ",{object:"atlas",atlas:"blocks",sprite:"block/black_concrete"}],data:{transformation: [ -5,  0,  0, -1.125,  0,  5,  0,  0.75,  0,  0, -5,  0,      0, 0, 0, 1 ],rubik_cube_3_on_pass_order:  2}, Rotation:[180,0],Tags:["rubik_cube_3_","rubik_cube_3_o_01_s","rubik_cube_3_up","rubik_cube_3_north","rubik_cube_3_east"]}
@@ -133,7 +135,7 @@ summon text_display ~ ~ ~ {background:0,text:[" ",{object:"atlas",atlas:"blocks"
 summon text_display ~ ~ ~ {background:0,text:[" ",{object:"atlas",atlas:"blocks",sprite:"block/black_concrete"}],data:{transformation: [  5,  0,  0, -1.875,  0,  0, -5,  0,     0,  5,  0, -1.25,   0, 0, 0, 1 ],rubik_cube_3_on_pass_order:104}, Rotation:[180,0],Tags:["rubik_cube_3_","rubik_cube_3_o_01_d","rubik_cube_3_east","rubik_cube_3_n-s_center","rubik_cube_3_u-d_center"]}
 summon text_display ~ ~ ~ {background:0,text:[" ",{object:"atlas",atlas:"blocks",sprite:"block/orange_concrete"}],data:{transformation:     [  0,      0, -4.375, -2.001,     0,  4.375,  0 ,    -0.15625,  4.375,  0,      0,     -0.828125,  0, 0, 0, 1 ],rubik_cube_3_on_pass_order:105,have_color:true}, Rotation:[180,0],Tags:["rubik_cube_3_","rubik_cube_3_o_02_e","rubik_cube_3_east","rubik_cube_3_n-s_center","rubik_cube_3_u-d_center"]}
 
-summon text_display ~ ~ ~ {data:{rotation_matrix:[1,0,0,0,1,0,0,0,1],formula:[],colloquial_formula:[]},Rotation:[180,0],Tags:["rubik_cube_3_o_14","rubik_cube_3_base","rubik_cube_3_","rubik_cube_3_center","rubik_cube_3_n-s_center","rubik_cube_3_e-w_center","rubik_cube_3_u-d_center"]}
+execute positioned ~ ~ ~ summon text_display run function rubik_cube_3:set_cube/summon_center_entity
 # summon text_display ~ ~ ~ {background:0,text:[" ",{object:"atlas",atlas:"blocks",sprite:"block/black_concrete"}],data:{transformation: [  5,  0,  0, -0.875,  0,  5,  0, -0.25,  0,  0,  5,  0,      0, 0, 0, 1 ],rubik_cube_3_on_pass_order:106}, Rotation:[180,0],Tags:["rubik_cube_3_","rubik_cube_3_o_01_n","rubik_cube_3_n-s_center","rubik_cube_3_e-w_center","rubik_cube_3_u-d_center"]}
 # summon text_display ~ ~ ~ {background:0,text:[" ",{object:"atlas",atlas:"blocks",sprite:"block/black_concrete"}],data:{transformation: [ -5,  0,  0, -0.125,  0,  5,  0, -0.25,  0,  0, -5, -1,      0, 0, 0, 1 ],rubik_cube_3_on_pass_order:107}, Rotation:[180,0],Tags:["rubik_cube_3_","rubik_cube_3_o_01_s","rubik_cube_3_n-s_center","rubik_cube_3_e-w_center","rubik_cube_3_u-d_center"]}
 # summon text_display ~ ~ ~ {background:0,text:[" ",{object:"atlas",atlas:"blocks",sprite:"block/black_concrete"}],data:{transformation: [  0,  0, -5, -1,      0,  5,  0, -0.25,  5,  0,  0, -0.875,  0, 0, 0, 1 ],rubik_cube_3_on_pass_order:108}, Rotation:[180,0],Tags:["rubik_cube_3_","rubik_cube_3_o_01_e","rubik_cube_3_n-s_center","rubik_cube_3_e-w_center","rubik_cube_3_u-d_center"]}

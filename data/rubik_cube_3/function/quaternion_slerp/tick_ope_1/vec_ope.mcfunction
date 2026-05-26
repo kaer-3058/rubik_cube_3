@@ -13,9 +13,9 @@ execute store result storage rubik_cube_3:io sstemp_quat_C[2] double -0.00000001
 data modify storage rubik_cube_3:io temp_q1 set from storage rubik_cube_3:io quat_C
 data modify storage rubik_cube_3:io temp_q2 set from storage rubik_cube_3:io manual_interpolation.start_vec
 data modify storage rubik_cube_3:io temp_q2 append value 0
-function rubik_cube_3:quaternion_mul_high
+function rubik_cube_3:quaternion_mul
 data modify storage rubik_cube_3:io temp_q2 set from storage rubik_cube_3:io sstemp_quat_C
-function rubik_cube_3:quaternion_mul_high
+function rubik_cube_3:quaternion_mul
 
 #对位移向量进行缩放以适配魔方大小
 data modify storage rubik_cube_3:io temp1 set value [1,0,0,2,0,1,0,2,0,0,1,2,0,0,0,1]

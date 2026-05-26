@@ -1,0 +1,22 @@
+[
+    {
+        "function": "copy_custom_data",
+        "ops": [
+            {
+                "op": "replace",
+                "source": "stemp_uuid",
+                "target": "target_uuid"
+            }
+        ],
+        "source": {
+            "type": "storage",
+            "source": "rubik_cube_3:io"
+        }
+    },
+    {
+        "function": "set_custom_data",
+        "tag": {
+            "hava_target": true
+        }
+    }
+]

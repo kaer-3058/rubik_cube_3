@@ -1,4 +1,4 @@
-execute at @n[type=text_display,tag=rubik_cube_3_center,distance=..2] if entity @e[type=text_display,tag=rubik_cube_3_,distance=...01,scores={rubik_cube_3_interpolat_durat=1},limit=1] run return fail
+execute at @n[type=text_display,tag=rubik_cube_3_center,distance=..2] if function rubik_cube_3:break_ run return fail
 
 #修改魔方大小
 function rubik_cube_3:modify_scale/start

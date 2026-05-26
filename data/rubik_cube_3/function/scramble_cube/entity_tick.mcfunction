@@ -3,7 +3,7 @@
 scoreboard players operation #temp1 int = @s entity_time_1
 scoreboard players operation #temp1 int %= 5 const
 execute if score @s store_scrambling_steps matches 1.. if score #temp1 int matches 1 run function rubik_cube_3:scramble_cube/loop2
-execute if score @s store_scrambling_steps matches 1.. run return run scoreboard players remove @s entity_time_1 1
+execute if score @s store_scrambling_steps matches 1.. if score @s entity_time_1 matches 1.. run return run scoreboard players remove @s entity_time_1 1
 
 tag @s remove rubik_cube_3_scrambling
 data remove entity @s data.rotation

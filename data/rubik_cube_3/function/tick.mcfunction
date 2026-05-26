@@ -1,4 +1,6 @@
-execute positioned .0 .0 .0 as @e[type=text_display,tag=rubik_cube_3_,distance=.0..] run function rubik_cube_3:tick.if
+execute positioned .0 .0 .0 as @e[type=text_display,tag=rubik_cube_3_,distance=.0..] run function rubik_cube_3:tick.text_display.if
+execute as @a run function rubik_cube_3:tick.player.if
+
 
 #只有魔方中心块才具有这个tag：rubik_cube_3_center
 
@@ -11,3 +13,4 @@ execute positioned .0 .0 .0 as @e[type=text_display,tag=rubik_cube_3_,distance=.
 5. 经典的MC里的坐标系和数学里的不一样，有些算法把xyzw顺序写错了 \
 6. 1到p0的插值里，本来只有w分量会加一项sin((1-t)u)/(sinu)，错误的把四个分量都加了一项 \
 7. 忘记把数据同步到实体data里
+

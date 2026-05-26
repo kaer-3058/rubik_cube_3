@@ -13,6 +13,8 @@
 #10000倍输入：{#q1_x, #q1_y, #q1_z, #q1_w}   {#q2_x, #q2_y, #q2_z, #q2_w}
 #100000000倍输出：{#q3_x, #q3_y, #q3_z, #q3_w}
 
+# function rubik_cube_3:quaternion_mul
+
 execute store result score #q1_x int run data get storage rubik_cube_3:io temp_q1[0] 10000
 execute store result score #q1_y int run data get storage rubik_cube_3:io temp_q1[1] 10000
 execute store result score #q1_z int run data get storage rubik_cube_3:io temp_q1[2] 10000
@@ -61,19 +63,15 @@ scoreboard players operation #sstempz4 int *= #q2_w int
 
 scoreboard players operation #q3_w int -= #sstempx1 int
 scoreboard players operation #q3_w int -= #sstempy1 int
-scoreboard players operation #q3_w int -= #sstempz1 int
 scoreboard players operation #q3_x int += #sstempx2 int
 scoreboard players operation #q3_x int += #sstempy2 int
-scoreboard players operation #q3_x int -= #sstempz2 int
 scoreboard players operation #q3_y int -= #sstempx3 int
 scoreboard players operation #q3_y int += #sstempy3 int
-scoreboard players operation #q3_y int += #sstempz3 int
 scoreboard players operation #q3_z int += #sstempx4 int
 scoreboard players operation #q3_z int -= #sstempy4 int
-scoreboard players operation #q3_z int += #sstempz4 int
 
 #输出
-execute store result storage rubik_cube_3:io temp_q1[0] double .00000001 run scoreboard players get #q3_x int
-execute store result storage rubik_cube_3:io temp_q1[1] double .00000001 run scoreboard players get #q3_y int
-execute store result storage rubik_cube_3:io temp_q1[2] double .00000001 run scoreboard players get #q3_z int
-execute store result storage rubik_cube_3:io temp_q1[3] double .00000001 run scoreboard players get #q3_w int
+execute store result storage rubik_cube_3:io temp_q1[0] double .00000001 run scoreboard players operation #q3_x int -= #sstempz2 int
+execute store result storage rubik_cube_3:io temp_q1[1] double .00000001 run scoreboard players operation #q3_y int += #sstempz3 int
+execute store result storage rubik_cube_3:io temp_q1[2] double .00000001 run scoreboard players operation #q3_z int += #sstempz4 int
+execute store result storage rubik_cube_3:io temp_q1[3] double .00000001 run scoreboard players operation #q3_w int -= #sstempz1 int

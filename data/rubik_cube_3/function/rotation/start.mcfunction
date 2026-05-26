@@ -63,3 +63,9 @@ execute if data storage rubik_cube_3:io rotation{face:"u-d_center",clockwise:tru
 execute if data storage rubik_cube_3:io rotation{face:"u-d_center",clockwise:false} run data modify storage rubik_cube_3:io temp3 set value "上下中层逆时针"
 
 data modify entity @s data.colloquial_formula append from storage rubik_cube_3:io temp3
+
+#把旋转动作发送给录制中的玩家身上对应的物品
+#此临时tag来自：function rrr_cube_rooooooll:cube_block/touch
+tag @s add r_temp_tt
+execute at @s as @a[tag=rubik_cube_3_player_rotation_cube,distance=..200] run function rubik_cube_3:rotation/export_formula_to_item/test_player_
+tag @s remove r_temp_tt

@@ -12,14 +12,9 @@
   前后中层  S   \
   左右中层  M
 
-#输入：data modify storage rubik_cube_3:io import_cube_formula set value {list:["U","E","R'"],overwrite:true}
-
-# data modify storage rubik_cube_3:io import_cube_formula set value {list:["U","U","L'"],overwrite:true}
+#输入：data modify storage rubik_cube_3:io import_cube_formula set value {list:["U","E","R'"],opposite:true}
 
 data modify storage rubik_cube_3:io rotation set value {interpolation_duration:0}
-
-#若选择覆盖则先复原魔方
-execute if data storage rubik_cube_3:io import_cube_formula{overwrite:true} at @s as @e[type=text_display,tag=rubik_cube_3_,distance=...01] run function rubik_cube_3:solve/start
 
 #循环
 data modify storage rubik_cube_3:io temp_import_cube_formula set from storage rubik_cube_3:io import_cube_formula.list

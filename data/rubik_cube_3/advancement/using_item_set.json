@@ -1,0 +1,15 @@
+{
+    "criteria": {
+        "a": {
+            "trigger": "using_item",
+            "conditions": {
+                "item": {
+                    "items": "paper"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "rubik_cube_3:item_function/use/advan_using_item"
+    }
+}

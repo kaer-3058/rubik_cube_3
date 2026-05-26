@@ -1,7 +1,9 @@
 #循环
 
 data remove storage rubik_cube_3:io temp1
-data modify storage rubik_cube_3:io temp1 set from storage rubik_cube_3:io temp_import_cube_formula[0]
+execute unless data storage rubik_cube_3:io import_cube_formula{opposite:true} run data modify storage rubik_cube_3:io temp1 set from storage rubik_cube_3:io temp_import_cube_formula[0]
+execute if data storage rubik_cube_3:io import_cube_formula{opposite:true} run data modify storage rubik_cube_3:io temp1 set from storage rubik_cube_3:io temp_import_cube_formula[-1]
+
 execute if data storage rubik_cube_3:io {temp1:"U" } run data modify storage rubik_cube_3:io rotation merge value {face:"up",        clockwise:true }
 execute if data storage rubik_cube_3:io {temp1:"U'"} run data modify storage rubik_cube_3:io rotation merge value {face:"up",        clockwise:false}
 execute if data storage rubik_cube_3:io {temp1:"D" } run data modify storage rubik_cube_3:io rotation merge value {face:"down",      clockwise:true }
@@ -21,7 +23,10 @@ execute if data storage rubik_cube_3:io {temp1:"M'"} run data modify storage rub
 execute if data storage rubik_cube_3:io {temp1:"E" } run data modify storage rubik_cube_3:io rotation merge value {face:"u-d_center",clockwise:true }
 execute if data storage rubik_cube_3:io {temp1:"E'"} run data modify storage rubik_cube_3:io rotation merge value {face:"u-d_center",clockwise:false}
 
+# compound
+# components
 function rubik_cube_3:rotation/start
 
-data remove storage rubik_cube_3:io temp_import_cube_formula[0]
+execute unless data storage rubik_cube_3:io import_cube_formula{opposite:true} run data remove storage rubik_cube_3:io temp_import_cube_formula[0]
+execute if data storage rubik_cube_3:io import_cube_formula{opposite:true} run data remove storage rubik_cube_3:io temp_import_cube_formula[-1]
 execute if data storage rubik_cube_3:io temp_import_cube_formula[0] run function rubik_cube_3:formula/import/loop1

@@ -22,7 +22,8 @@ execute if data storage rubik_cube_3:io buffer_rotation_opera{face:"n-s_center"}
 execute if data storage rubik_cube_3:io buffer_rotation_opera{face:"e-w_center"} run data remove storage rubik_cube_3:io temp_scramble_list[17]
 execute if data storage rubik_cube_3:io buffer_rotation_opera{face:"e-w_center"} run data remove storage rubik_cube_3:io temp_scramble_list[16]
 
-execute store result score #temp1 int run random value 0..15
+execute store result storage rubik_cube_3:io sstemp1 int .000001 run random value 0..15999999
+execute store result score #temp1 int run data get storage rubik_cube_3:io sstemp1
 execute if score #temp1 int matches 0 run data modify storage rubik_cube_3:io rotation merge from storage rubik_cube_3:io temp_scramble_list[0]
 execute if score #temp1 int matches 1 run data modify storage rubik_cube_3:io rotation merge from storage rubik_cube_3:io temp_scramble_list[1]
 execute if score #temp1 int matches 2 run data modify storage rubik_cube_3:io rotation merge from storage rubik_cube_3:io temp_scramble_list[2]
@@ -41,7 +42,10 @@ execute if score #temp1 int matches 14 run data modify storage rubik_cube_3:io r
 execute if score #temp1 int matches 15 run data modify storage rubik_cube_3:io rotation merge from storage rubik_cube_3:io temp_scramble_list[15]
 data modify entity @s data.rotation.buffer_rotation_opera set from storage rubik_cube_3:io rotation
 function rubik_cube_3:rotation/start
-execute on passengers run function rubik_cube_3:scramble_cube/2
+
+#修正魔方大小
+execute store result score #temp1 int run data get entity @s data.cube_scale 1000
+execute unless score #temp1 int matches 1000 on passengers run function rubik_cube_3:scramble_cube/2
 
 data modify storage rubik_cube_3:io rotation set from storage rubik_cube_3:io store_rotation_2
 scoreboard players remove @s store_scrambling_steps 1

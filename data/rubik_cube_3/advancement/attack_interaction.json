@@ -1,0 +1,15 @@
+{
+    "criteria": {
+        "a": {
+            "trigger": "player_hurt_entity",
+            "conditions": {
+                "entity": {
+                    "type": "interaction"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "rubik_cube_3:item_function/attack/reward"
+    }
+}

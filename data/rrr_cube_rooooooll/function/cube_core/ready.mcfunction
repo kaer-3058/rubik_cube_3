@@ -2,6 +2,8 @@
 scoreboard players set @s rrrcubecore_timeount 40
 execute unless data entity @s data.turnturn_cube[2] run return fail
 
+#此函数若成功执行则表示玩家互动触发了魔方旋转
+
 #开转
 ##CFOP右手公式的出现顺序
 execute if data entity @s data.turnturn_cube[0].right if data entity @s data.turnturn_cube[1].right if data entity @s data.turnturn_cube[2].right run return run function rrr_cube_rooooooll:cube_core/turn {face:right}

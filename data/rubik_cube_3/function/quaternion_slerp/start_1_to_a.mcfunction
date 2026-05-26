@@ -20,7 +20,7 @@ execute store result score #quat1_d int run data get storage rubik_cube_3:io qua
 
 #slerp最短路径问题
 #若q1·q2点积结果为负，则把q2取反，再进行slerp
-execute if score #quat1_d int matches ..-1 run function rubik_cube_3:quaternion_slerp/test_shortest_path/p0_is_1
+execute if score #quat1_d int matches ..-1 run function rubik_cube_3:quaternion_slerp/test_shortest_path/1_to_a
 
 #arccos
 scoreboard players operation #arcsin_cos.input int = #quat1_d int

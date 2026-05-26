@@ -1,0 +1,38 @@
+[
+    {
+        "function": "set_components",
+        "components": {
+            "item_model": "ender_eye"
+        }
+    },
+    {
+        "function": "set_custom_data",
+        "tag": {
+            "rubik_cube_recording": true,
+            "formula": []
+        }
+    },
+    {
+        "function": "copy_custom_data",
+        "ops": [
+            {
+                "op": "replace",
+                "source": "sstemp_pos",
+                "target": "target_pos"
+            }
+        ],
+        "source": {
+            "type": "storage",
+            "source": "rubik_cube_3:io"
+        }
+    },
+    {
+        "function": "set_lore",
+        "lore": [
+            [{"keybind":"key.attack","color":"gray","italic":false},{"text":"停止录制并弹出录像带","color":"gray","italic":false}],
+            {"text":"放于背包会自动录制","color":"gray","italic":false},
+            ""
+        ],
+        "mode": "replace_all"
+    }
+]

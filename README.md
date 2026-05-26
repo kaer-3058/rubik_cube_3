@@ -14,16 +14,11 @@
 
 ------
 
-### 放置魔方
+### 交互道具
 
 ```
-
-```
-
-### 删除魔方
-
-```
-
+获取交互道具：function rubik_cube_3:cube_function/give_items
+可以使用道具进行：放置/删除魔方，复原/打乱魔方，录制/播放魔方旋转动作。
 ```
 
 ### 旋转魔方
@@ -31,33 +26,9 @@
 ```
 魔方表面自带交互判定，可以通过连续点击三个块来触发旋转
 或者长按鼠标进行拖动，会自动连点，也可以进行旋转
-面向你要旋转的面进行点击会好一点，如果点错导致卡顿可以等待约4秒CD
-注：在魔方旋转的过程中，无法对其进行删除以外的操作。
+面向你要旋转的面进行点击会好一点，如果点错导致卡顿可以等待2~3秒CD
+注：在魔方旋转的过程中，无法对其进行删除和录制以外的操作。
 交互作者：Squash233_
-```
-
-### 复原魔方
-
-```
-
-```
-
-### 随机打乱魔方
-
-```
-
-```
-
-### 录制旋转动作
-
-```
-
-```
-
-### 导入旋转动作
-
-```
-
 ```
 
 　
@@ -102,7 +73,9 @@
     clockwise：是否按顺时针旋转，默认为true。若此标签没有值，则会自动设置为默认值。
     interpolation_duration：魔方旋转的插值时间，单位为游戏刻，默认为0。
 执行：execute positioned x y z run function rubik_cube_3:cube_function/rotation
-注：魔方对于上下东南西北的定义依赖于魔方实体的朝向。
+注：
+1.魔方对于上下东南西北的定义依赖于魔方实体的朝向。
+2.在魔方旋转的过程中，无法对其进行删除和录制以外的操作。
 ```
 
 ### 复原魔方
@@ -134,10 +107,10 @@
 ### 导入旋转序列
 
 ```
-输入：data modify storage rubik_cube_3:io import_cube_formula set value {list:["U","E","R'"],overwrite:true}
+输入：data modify storage rubik_cube_3:io import_cube_formula set value {list:["U'","L","F'"],opposite:false}
 参数：
-    list：字符串列表，旋转符号列表。从前往后逐次应用旋转。
-    overwrite：是否覆盖旋转历史记录。若为false则在当前旋转的基础上叠加。
+    list：字符串列表，旋转符号列表。默认从前往后逐次应用旋转，且始终在当前旋转的基础上叠加应用。
+    opposite：是否逆序应用旋转序列。即从后往前逐次应用旋转。
 执行：execute positioned x y z run function rubik_cube_3:cube_function/import_formula
 ```
 
