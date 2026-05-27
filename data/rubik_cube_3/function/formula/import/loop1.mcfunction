@@ -23,6 +23,10 @@ execute if data storage rubik_cube_3:io {temp1:"M'"} run data modify storage rub
 execute if data storage rubik_cube_3:io {temp1:"E" } run data modify storage rubik_cube_3:io rotation merge value {face:"u-d_center",clockwise:true }
 execute if data storage rubik_cube_3:io {temp1:"E'"} run data modify storage rubik_cube_3:io rotation merge value {face:"u-d_center",clockwise:false}
 
+#方向改为逆向
+execute if data storage rubik_cube_3:io import_cube_formula{opposite:true} store result score #temp int run data get storage rubik_cube_3:io rotation.clockwise -1
+execute if data storage rubik_cube_3:io import_cube_formula{opposite:true} store result storage rubik_cube_3:io rotation.clockwise byte 1 run scoreboard players add #temp int 1
+
 # compound
 # components
 function rubik_cube_3:rotation/start

@@ -9,8 +9,8 @@ execute if data storage rubik_cube_3:io {temp2:"[]"} run data modify storage rub
 
 #设置录像带信息
 item replace block -29999984 -60 22022220 container.0 with paper[custom_name=[{text:"魔方旋转动作录像带",italic:false}],lore=[\
-    [{keybind:"key.use",color:"gray",italic:false},{text:"正序播放旋转动作",color:"gray",italic:false}], \
-    [{keybind:"key.attack",color:"gray",italic:false},{text:"逆序播放旋转动作",color:"gray",italic:false}], \
+    [{keybind:"key.use",color:"gray",italic:false},{text:"正向播放旋转动作",color:"gray",italic:false}], \
+    [{keybind:"key.attack",color:"gray",italic:false},{text:"逆向播放旋转动作",color:"gray",italic:false}], \
     "", \
     [{text:"旋转动作：[]",color:"dark_aqua",italic:false}] \
     \

@@ -18,4 +18,4 @@ data modify storage rubik_cube_3:io temp2 set value [" [","",", ","",", ","","] 
 data modify storage rubik_cube_3:io temp2[1] set string storage rubik_cube_3:io temp1[0] 0 -1
 data modify storage rubik_cube_3:io temp2[3] set string storage rubik_cube_3:io temp1[1] 0 -1
 data modify storage rubik_cube_3:io temp2[5] set string storage rubik_cube_3:io temp1[2] 0 -1
-tellraw @a [{text:"位于",color:"gray",italic:true},{nbt:"temp2",storage:"rubik_cube_3:io",color:"gray",italic:true,interpret:true},{text:"的魔方开始",color:"gray",italic:true},{text:"逆序",color:"dark_aqua",italic:true},{text:"播放动作",color:"gray",italic:true}]
+tellraw @a [{text:"位于",color:"gray",italic:true},{nbt:"temp2",storage:"rubik_cube_3:io",color:"gray",italic:true,interpret:true},{text:"的魔方开始",color:"gray",italic:true},{text:"逆向",color:"dark_aqua",italic:true},{text:"播放动作",color:"gray",italic:true}]

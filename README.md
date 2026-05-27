@@ -112,8 +112,10 @@
 输入：data modify storage rubik_cube_3:io import_cube_formula set value {list:["U'","L","F'"],opposite:false}
 参数：
     list：字符串列表，旋转符号列表。默认从前往后逐次应用旋转，且始终在当前旋转的基础上叠加应用。
-    opposite：是否逆序应用旋转序列。即从后往前逐次应用旋转。
+    opposite：是否逆向应用旋转序列。
 执行：execute positioned x y z run function rubik_cube_3:cube_function/import_formula
+
+直接把导出的旋转序列写入：data modify storage rubik_cube_3:io import_cube_formula.list set from storage rubik_cube_3:io cube_formula
 ```
 
 ### 旋转符号说明
