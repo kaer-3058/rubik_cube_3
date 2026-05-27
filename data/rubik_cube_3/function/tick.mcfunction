@@ -5,7 +5,7 @@ execute as @a run function rubik_cube_3:tick.player.if
 #只有魔方中心块才具有这个tag：rubik_cube_3_center
 
 
-#  总结的问题： \
+#  2026.5.6 总结的问题： \
 1. slerp最短路径问题，有变量打错了符号 \
 2. 因为涉及到模型的缩放，有些模型的四元数在插值前错误的把缩放后的四元数拿来插值了 \
 3. 仅取三四位小数导致的误差积累，已换成高精度算法 \

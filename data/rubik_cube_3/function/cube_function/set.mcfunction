@@ -9,7 +9,9 @@ function rrr_cube_rooooooll:create/cube
 
 #初始化大小
 execute unless data storage rubik_cube_3:io cube_scale run data modify storage rubik_cube_3:io cube_scale set value 1.0f
-execute as @e[type=text_display,tag=rubik_cube_3_,distance=...01] run function rubik_cube_3:modify_scale/2_spe.2
+execute as @e[type=text_display,tag=rubik_cube_3_,tag=rubik_cube_3.set_cube.start.temp_e,distance=...01] run function rubik_cube_3:modify_scale/2_spe.2
+
+tag @e[type=text_display,tag=rubik_cube_3.set_cube.start.temp_e] remove rubik_cube_3.set_cube.start.temp_e
 
 #这条是检测函数是否执行成功用的
 return 2

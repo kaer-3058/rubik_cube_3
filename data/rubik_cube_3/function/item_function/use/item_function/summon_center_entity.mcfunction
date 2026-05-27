@@ -1,2 +1,2 @@
-data merge entity @s {data:{rotation_matrix:[1,0,0,0,1,0,0,0,1],formula:[],colloquial_formula:[]},Rotation:[180,0],Tags:["rubik_cube_3_o_14","rubik_cube_3_base","rubik_cube_3_","rubik_cube_3_center","rubik_cube_3_n-s_center","rubik_cube_3_e-w_center","rubik_cube_3_u-d_center","rubik_cube_3_using_item_set","rubik_cube_3_temp_entity"]}
+data merge entity @s {data:{rotation_matrix:[1,0,0,0,1,0,0,0,1],formula:[],colloquial_formula:[]},Rotation:[180,0],Tags:["rubik_cube_3_o_14","rubik_cube_3_base","rubik_cube_3_","rubik_cube_3_center","rubik_cube_3_n-s_center","rubik_cube_3_e-w_center","rubik_cube_3_u-d_center","rubik_cube_3_using_item_set","rubik_cube_3_temp_entity","rubik_cube_3_is_temp_rube"]}
 data modify storage rubik_cube_3:io stemp_uuid set from entity @s UUID
